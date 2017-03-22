@@ -1,0 +1,454 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:100,200,400,300,300italic,400italic,600,600italic,700,700italic,900")
+@import url("https://fonts.googleapis.com/css?family=Raleway:400,900")
+
+$white: #fff
+$darker: #313332
+$hover: #02c9ea
+$lighter: #cdcdcd
+
+=border-radius($radius)
+	-webkit-border-radius: $radius
+	-moz-border-radius:    $radius
+	-ms-border-radius:     $radius
+	border-radius:         $radius
+
+* 
+	box-sizing: border-box
+	margin: 0
+	font-family: 'Open Sans', sans-serif
+
+// grid
+[class*="col-"]
+	float: left
+	min-height: 1px
+	padding: 15px
+
+$grid-columns: 12
+
+@for $i from 1 through $grid-columns
+	.col-#{$i}
+		width: 100% / $grid-columns * $i
+
+$grid-offset: 12
+
+@for $i from 0 through $grid-offset
+	.col-offset-#{$i}
+		margin-left: 100% / $grid-offset * $i
+
+.row:before,
+.row:after 
+	content: ""
+	display: table
+
+.row:after
+	clear: both
+
+.container
+	max-width: 1200px
+	margin: 0 auto
+
+section .container 
+	margin: 50px auto
+	text-align: center
+
+// header
+header 
+	background-color: $darker
+	height: 50px
+
+nav
+	ul 
+		margin: 0
+		padding: 0
+		list-style-type: none
+		float: right
+
+	li
+		display: inline-block
+
+	a 
+		display: block
+		line-height: 50px
+		padding: 0 20px
+		color: $white
+		text-decoration: none
+		text-transform: uppercase
+		&:hover 
+			color: $hover
+
+	img 
+		padding: 10px 0
+
+// hero
+.hero 
+	width: 100%
+	height: 100vh
+	background: url("https://images.unsplash.com/photo-1414690165279-49ab0a9a7e66?dpr=1&amp")
+	background-size: cover
+	background-position: center
+
+.slogan 
+	max-width: 800px
+	float: right
+	background-color: rgba(0, 0, 0, .4)
+	padding: 40px 250px 40px 40px
+	color: $white
+	margin-top: 35vh
+
+	h1 
+		text-transform: uppercase
+		font-weight: 300
+
+		span 
+			font-weight: 800
+
+// benefits
+.benefits
+	i.fa 
+		font-size: 70px
+		background-color: $darker
+		color: $white
+		padding: 20px
+		margin-bottom: 20px
+		+border-radius(10px)
+
+	a 
+		color: $darker
+		text-transform: uppercase
+		text-decoration: none
+
+	p 
+		font-size: 12px
+		color: #cdcdcd
+
+.blue:hover i 
+	background: $hover
+
+.blue:hover h3 
+	color: $hover
+
+// benefits2
+.benefits2
+	h1 
+		text-transform: uppercase
+		color: $darker
+		font-size: 30px
+		font-weight: bold
+
+	p 
+		color: $lighter
+		font-size: 15px
+
+// gallery
+.gallery [class*="col-"] 
+	padding: 0
+
+	img 
+		width: 100%
+		height: 200px
+		display: block
+		object-fit: cover
+
+.layer 
+	position: absolute
+	width: inherit
+	height: 200px
+	line-height: 200px
+	text-align: center
+	&:hover 
+		background-color: rgba(0, 0, 0, .5)
+	&:hover i.fa 
+		visibility: visible
+
+	i.fa 
+		background-color: $white
+		font-size: 15px
+		padding: 10px
+		margin: 10px auto
+		visibility: hidden
+		+border-radius(5px)
+
+// team
+.team [class*="col-"] 
+	padding: 10px
+
+	img 
+		+border-radius(50%)
+		height: 100%
+		width: 100%
+		display: block
+		object-fit: cover
+
+	h2 
+		color: $darker
+		text-align: center
+		margin-top: 10px
+
+.circle 
+	position: relative
+	height: 220px
+	width: 220px
+	margin: 0 auto
+	
+.circle-layer 
+	position: absolute
+	height: 100%
+	width: 100%
+	line-height: 220px
+	text-align: center
+	+border-radius(50%)
+	color: $white
+	&:hover
+		background-color: rgba(0, 0, 0, .5)
+	&:hover h3
+		visibility: visible
+	
+	h3 
+		visibility: hidden	
+		font-size: 25px
+
+// picture
+.picture
+	[class*="col-"]
+		padding: 10px
+	width: 100%
+	max-height: 350px
+	background-color: $darker	
+	padding: 20px
+	display: block
+	overflow: hidden
+
+	img 
+		width: 70%
+
+	h1 
+		text-align: left
+		text-transform: uppercase
+		color: $white
+		padding: 10px 0 0 25px
+		font-size: 30px
+
+	p 
+		color: $lighter
+		text-align: left
+		padding: 0px 30px 10px 20px
+		font-size: 15px
+
+// numbers
+.numbers
+	h1 
+		font-size: 40px
+		font-weight: 800
+		font-family: 'Raleway', sans-serif
+
+	h4 
+		margin-top: 5px
+		color: $hover
+		text-transform: uppercase
+		font-size: 16px
+		font-weight: 600
+		line-height: 16px
+
+// contact
+.contact
+	[class*="col-"] 
+		padding: 10px
+		text-align: left 
+	float: left
+	background-color: $darker
+	width: 100%
+	color: $white
+	display: block
+	position: center
+
+	h3 
+		text-align: left
+		padding: 30px 10px
+		font-size: 25px
+		text-transform: uppercase
+		&:after 
+			content: ""
+			display: inline-block
+			width: 80px
+			border-top: 3px solid $white
+			padding: 4px 0
+			margin: 0 10px
+
+	p 
+		font-size: 14px
+
+.social
+	i 
+		text-align: center
+		font-size: 15px
+		height: 30px
+		width: 30px
+		+border-radius(10px)
+
+	i.fa 
+		color: $white
+		padding: 10px
+		margin: 10px 10px 0 0
+		background-color: $lighter
+		float: none
+		&:hover 
+			background-color: $hover
+
+// footer
+footer
+	text-align: center
+	background-color: #252726
+	color: $white
+	line-height: 40px
+	font-size: 12px
+
+// media
+@media (min-width: 768px) and (max-width: 1199px) 
+	// For tablets/laptops
+	@for $i from 1 through $grid-columns
+		.col-m-#{$i}
+			width: 100% / $grid-columns * $i
+    
+	// gallery
+	.gallery img 
+		height: 300px
+   	
+	.layer 
+		height: 300px
+		line-height: 300px
+   		
+	// picture
+	.picture 
+		width: 100%
+		height: 100%
+		overflow: hidden
+		max-height: 100%
+		padding: 0
+	
+		img 
+			width: 30%
+    
+		h1 
+			text-align: left
+			padding: 5px
+			font-size: 30px 
+     
+		p 
+			text-align: left
+			padding: 5px
+			font-size: 90%
+    
+	// contact	
+	.contact
+		h3 
+			text-align: center
+			padding: 10px
+			font-size: 20px
+	 
+		p,
+		h4 
+			text-align: center
+			font-size: 90%
+    
+	.social 
+		text-align: center
+    
+@media (max-width: 767px) 
+	// For mobiles
+	@for $i from 1 through $grid-columns
+		.col-s-#{$i}
+			width: 100% / $grid-columns * $i
+   
+	// header
+	header 
+		width: 100%
+		height: auto
+	
+	nav
+		ul 
+			float: none
+			text-align: center
+	
+		li 
+			display: block
+	
+		a 
+			font-size: 80%
+			line-height: 40px
+	
+		img 
+			display: block
+			margin: 0 auto
+	
+	// hero
+	.hero 
+		height: 60vh
+	
+	.slogan 
+		padding: 5%
+		margin-top: 20vh
+	
+		h1 
+			font-size: 1.2em
+    
+		h2 
+			font-size: 1.2em
+    
+	// gallery
+	.gallery
+		img    	
+			margin-bottom: 3%
+			&:last-child 
+				margin-bottom: none
+    
+	.layer i.fa 
+		visibility: visible
+    
+	// team
+	.circle-layer h3 
+		visibility: visible
+    
+	// picture
+	.picture 
+		width: 100%
+		height: 100%
+		overflow: visible
+		max-height: 100%
+		padding: 0
+		padding-top: 1%
+		
+		img 
+			width: 25%
+    
+		h1 
+			text-align: center
+			padding: 5px
+			font-size: 150%
+    
+		p 
+			text-align: center
+			padding: 5px
+			font-size: 80%
+     
+	// contact
+	.contact
+		h3
+			text-align: center
+			padding: 10px
+			font-size: 25px
+			&:before 
+				content: ""
+				display: inline-block
+				width: 40px
+				border-top: 3px solid $white
+				padding: 4px 0
+				margin: 0 10px	
+			&:after 
+				@extend:before
+	    
+		p,    
+		h4,
+		.social 
+			text-align: center
+			margin-top: 3%
+	
